@@ -12,7 +12,11 @@ public class Main {
         Point B = new Point(x2, y2);
         Vector vector = printLength(A, B);
 
-        double baseAngle = getAngle(x2 - x1, vector.getLength());
+//         Получаем угол из треугольника с прямой AB и её проекции
+//         @param x2 - x1 прилежащая
+//         @param vector.getLength() гипотенуза
+//         @return angle in radians
+        double baseAngle = Math.acos(Math.toRadians(x2 - x1/ vector.getLength()));
         double angle = 90.0d - Math.toDegrees(baseAngle);
         double l = 6.0d;
 
@@ -35,16 +39,6 @@ public class Main {
         y2 = A2.getY() + Math.sin(baseAngle / 180 * Math.PI) * vector.getLength();
         Point B2 = new Point(x2, y2);
         printLength(A2, B2);
-    }
-
-    /**
-     * Получаем аркосинус угла из треугольника с прямой AB и её проекции
-     * @param len1 прилежащая
-     * @param len2 гипотенуза
-     * @return angle in radians
-     */
-    private static double getAngle(double len1, double len2) {
-        return Math.acos(Math.toRadians(len1 / len2));
     }
 
     private static Vector printLength(Point ... p) {
