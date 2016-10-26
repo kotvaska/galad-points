@@ -13,8 +13,8 @@ public class Main {
         Vector vector = printLength(A, B);
 
         double baseAngle = getAngle(x2 - x1, vector.getLength());
-        double l = 6.0d;
         double angle = 90.0d - Math.toDegrees(baseAngle);
+        double l = 6.0d;
 
         x2 = A.getX() + Math.cos(angle / 180 * Math.PI) * l;
         y2 = A.getY() - Math.sin(angle / 180 * Math.PI) * l;
@@ -37,6 +37,12 @@ public class Main {
         printLength(A2, B2);
     }
 
+    /**
+     * Получаем аркосинус угла из треугольника с прямой AB и её проекции
+     * @param len1 прилежащая
+     * @param len2 гипотенуза
+     * @return angle in radians
+     */
     private static double getAngle(double len1, double len2) {
         return Math.acos(Math.toRadians(len1 / len2));
     }
