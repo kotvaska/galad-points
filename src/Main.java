@@ -7,17 +7,16 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        double x1 = 0.0d, x2 = 2.0d, y1 = 0.0d, y2 = 2.0d;
+        double x1 = 0.0d, x2 = 0.0d, y1 = 0.0d, y2 = 2.0d;
         Point A = new Point(x1, y1);
         Point B = new Point(x2, y2);
         Vector vector = printLength(A, B);
 
 //         Получаем угол из треугольника с прямой AB и её проекции
-//         @param x2 - x1 прилежащая
-//         @param vector.getLength() гипотенуза
-//         @return angle in radians
-        double baseAngle = Math.acos(Math.toRadians(x2 - x1/ vector.getLength()));
-        double angle = 90.0d - Math.toDegrees(baseAngle);
+//         x2 - x1 прилежащая
+//         vector.getLength() гипотенуза
+        double baseAngle = Math.toDegrees(Math.acos(Math.toRadians(x2 - x1 / vector.getLength())));
+        double angle = 90.0d - baseAngle;
         double l = 3.0d;
 
         x2 = A.getX() + Math.cos(angle / 180 * Math.PI) * l;
