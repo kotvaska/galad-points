@@ -19,8 +19,8 @@ public class Vector {
     }
 
     public double getLength() {
-        return Math.sqrt(Math.pow(points.get(0).getX() - points.get(1).getX(), 2)
-                + Math.pow(points.get(0).getY() - points.get(1).getY(), 2));
+        return Math.sqrt(Math.pow(points.get(1).getX() - points.get(0).getX(), 2)
+                + Math.pow(points.get(1).getY() - points.get(0).getY(), 2));
     }
 
 }
